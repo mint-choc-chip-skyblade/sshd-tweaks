@@ -37,20 +37,6 @@ if release_archive_path.exists() and release_archive_path.is_dir():
 release_archive_path.mkdir(exist_ok=True)
 shutil.copyfile("README.md", release_archive_path / "README.txt")
 
-shutil.copytree(
-    Path("plandomizers") / "examples",
-    release_archive_path / "plandomizers" / "examples",
-)
-shutil.copyfile(
-    Path("plandomizers") / "vanilla_boko_base.yaml",
-    release_archive_path / "plandomizers" / "vanilla_boko_base.yaml",
-)
-
-(release_archive_path / "presets").mkdir(exist_ok=True)
-shutil.copyfile(
-    Path("presets") / "README.md", release_archive_path / "presets" / "README.txt"
-)
-
 (release_archive_path / "sshd_extract").mkdir(exist_ok=True)
 shutil.copyfile(
     Path("sshd_extract") / "README.md",

@@ -25,17 +25,6 @@
 /logs
 config.yaml
 preferences.yaml
-custom_theme.json
-tracker_autosave*
-
-# Presets
-/presets/*.yaml
-
-# Plandomizer
-*plandomizer.yaml
-/plandomizers/*
-!/plandomizers/examples
-!/plandomizers/vanilla_boko_base.yaml
 
 # asm
 /asm/additions/rust-additions/target
