@@ -79,8 +79,8 @@ class AllPatchHandler:
         print_progress_text("Patching Stages")
         self.stage_patch_handler.handle_stage_patches(self.conditional_patch_handler)
 
-        update_progress_value(80)
-        patch_logo(output_dir / "romfs")
+        # update_progress_value(80)
+        # patch_logo(output_dir / "romfs")
 
         update_progress_value(84)
         print_progress_text("Patching Events")
