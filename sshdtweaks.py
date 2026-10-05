@@ -53,6 +53,4 @@ else:
 
         patch()
 
-        print(
-            f"Total patch took {(time.perf_counter() - start_patch_time)} seconds"
-        )
+        print(f"Total patch took {(time.perf_counter() - start_patch_time)} seconds")

@@ -17,9 +17,7 @@ except ImportError:
     ROOT_PATH = Path(os.path.dirname(os.path.realpath(__file__)))
 
 if platform.system() == "Darwin":
-    userdata_path = platformdirs.user_data_dir(
-        "Skyward Sword HD Tweaks", "SSHD Tweaks"
-    )
+    userdata_path = platformdirs.user_data_dir("Skyward Sword HD Tweaks", "SSHD Tweaks")
 
     if not os.path.exists(userdata_path):
         os.mkdir(userdata_path)
@@ -59,9 +57,7 @@ BZS_TEMPLATE_PATH = ROOT_PATH / "assets" / "BZS_Template.arc"
 
 STAGE_PATCHES_PATH = ROOT_PATH / "data" / "patches" / "stagepatches.yaml"
 EVENT_PATCHES_PATH = ROOT_PATH / "data" / "patches" / "eventpatches.yaml"
-OBJECTPACK_PATCHES_PATH = (
-    ROOT_PATH / "data" / "patches" / "objectpackpatches.yaml"
-)
+OBJECTPACK_PATCHES_PATH = ROOT_PATH / "data" / "patches" / "objectpackpatches.yaml"
 EXTRACTS_PATH = ROOT_PATH / "data" / "patches" / "extracts.yaml"
 STAGE_FILES_PATH = ROMFS_EXTRACT_PATH / "Stage"
 

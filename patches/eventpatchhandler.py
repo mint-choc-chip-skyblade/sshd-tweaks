@@ -408,6 +408,7 @@ class EventPatchHandler:
     def add_check_patch(self, event_file: str, eventid: str, itemid: int, trapid: int):
         self.check_patches[event_file].append((eventid, itemid, trapid))
 
+
 def entrypoint_hash(name: str, entries: int) -> int:
     hash = 0
 

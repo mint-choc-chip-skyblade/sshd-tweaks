@@ -729,7 +729,7 @@ class StagePatchHandler:
 
         # Once we've extracted all the arcs, look for conflicts between different mods
         mod_arcs = {}
-        
+
         for mod in self.other_mods:
             for arc in (CACHE_OARC_PATH / mod).glob("*"):
                 if arc.name in mod_arcs:

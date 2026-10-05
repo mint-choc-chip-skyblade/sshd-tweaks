@@ -80,9 +80,7 @@ class Main(QMainWindow):
         self.progress_dialog = PatchProgressDialog(self, self.cancel_callback)
 
         self.patch_thread.dialog_value_update.connect(self.progress_dialog.setValue)
-        self.patch_thread.dialog_label_update.connect(
-            self.progress_dialog.setLabelText
-        )
+        self.patch_thread.dialog_label_update.connect(self.progress_dialog.setLabelText)
 
         self.patch_thread.setTerminationEnabled(True)
         self.patch_thread.start()
@@ -97,7 +95,7 @@ class Main(QMainWindow):
 
         done_dialog = QMessageBox(self)
         done_dialog.setWindowTitle("Patching Completed")
-        done_dialog_text = ("Pactch successfully generated!")
+        done_dialog_text = "Pactch successfully generated!"
 
         done_dialog.setText(done_dialog_text)
 

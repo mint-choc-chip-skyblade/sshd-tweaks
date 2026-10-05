@@ -26,6 +26,4 @@ def patch():
     update_progress_value(100)
 
     if not args.dryrun:
-        print(
-            f"The patch can be found at: {world.config.output_dir.as_posix()}"
-        )
+        print(f"The patch can be found at: {world.config.output_dir.as_posix()}")

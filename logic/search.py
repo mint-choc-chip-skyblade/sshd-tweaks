@@ -422,7 +422,7 @@ def game_beatable(worlds: list["World"], item_pool: list[Item] = []) -> bool:
 def all_logic_satisfied(worlds: list["World"], item_pool: Counter[Item] = {}) -> bool:
     search = Search(SearchMode.ALL_LOCATIONS_REACHABLE, worlds, item_pool)
     search.search_worlds()
-    
+
     return True
 
 
