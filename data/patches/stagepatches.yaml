@@ -66,6 +66,7 @@ F002r: # Beedle's Airshop
 
 F004r: # Bazaar
   - name: Remove goddess chest fi text
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC7D
     layer: 0
@@ -382,6 +383,7 @@ F200: # Eldin Volcano
       posz: -24700
       name: Tubo
   - name: Remove 2nd key piece tower cs
+    onlyif: no_explosion_cutscenes == on
     type: objpatch
     id: 0x200A
     layer: 0
@@ -390,6 +392,7 @@ F200: # Eldin Volcano
     object:
       params1: 0xFFF0FF18
   - name: Remove thrill digger tower cs
+    onlyif: no_explosion_cutscenes == on
     type: objpatch
     id: 0x1C0C
     layer: 0
@@ -427,15 +430,7 @@ F201_2: # Inside Volcano (Bokoblin Base)
       posy: 0
       posz: -810
       name: Tubo
-  - name: Remove panning Cutscenes
-    type: objdelete
-    ids:
-      - 0xFC4B # Pouch Chest
-      - 0xFC46 # Sword
-      - 0xFC49 # Lava platforms
-    layer: 0
-    room: 0
-    objtype: STAG
+
 
 F201_3: # Outside Fire Sanctuary
   - name: Add ammo pot to Inside the Volcano Bird Statue
@@ -456,6 +451,7 @@ F201_3: # Outside Fire Sanctuary
 
 F202: # Bokoblin Base
   - name: Remove lower Eldin panning Cutscenes
+    onlyif: reduce_panning_cutscenes == on
     type: objdelete
     startid: 0x0095
     endid: 0x0099
@@ -463,6 +459,7 @@ F202: # Bokoblin Base
     room: 2
     objtype: STAG
   - name: Remove upper Eldin panning Cutscenes
+    onlyif: reduce_panning_cutscenes == on
     type: objdelete
     startid: 0x0050
     endid: 0x0051
@@ -609,17 +606,25 @@ F300: # Lanayru Desert
       name: Tubo
   # objdeletes
   - name: Remove Fi texts
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFCC6 # Fi text after chest near caged robot
       - 0xFC29 # Fi text around caged robot
-      - 0xFCBC # Fi text for 5 beacons
+      # - 0xFCBC # Fi text for 5 beacons
       # - 0xFC87 # Fi text for trial gate
-      - 0x0CC4 # Fi text for all nodes
+    layer: 0
+    room: 0
+    objtype: OBJ
+  - name: Remove more Fi text
+    onlyif: reduce_fi_text == on
+    type: objdelete
+    id: 0x0CC4 # Fi text for all nodes
     layer: 0
     room: 0
     objtype: OBJ
   - name: Remove Boulder cs
+    onlyif: no_explosion_cutscenes == on
     type: objdelete
     id: 0xFD53
     layer: 0
@@ -643,6 +648,7 @@ F300_1: # Lanayru Mine
 
 F300_2: # Lightning Node
   - name: Fi text for generator
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFC24 # Fi text for Generator
@@ -653,6 +659,7 @@ F300_2: # Lightning Node
 
 F300_3: # Fire Node
   - name: Fi text for generator
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFC28 # Fi text for Generator
@@ -728,6 +735,7 @@ F301: # Ancient Harbour
 
 F301_2: # Inside Pirate Stronghold
   - name: Remove Fi Texts room 1
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFC0A # Fi text at start
@@ -736,12 +744,14 @@ F301_2: # Inside Pirate Stronghold
     room: 1
     objtype: OBJ
   - name: Remove Fi text before Timeshift Orb
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC06
     layer: 0
     room: 3
     objtype: OBJ
   - name: CS before second lever
+    onlyif: reduce_panning_cutscenes == on
     type: objdelete
     id: 0xFC28
     layer: 0
@@ -750,6 +760,7 @@ F301_2: # Inside Pirate Stronghold
 
 F301_3: # Skipper's Retreat
   - name: Text after intro
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC30
     layer: 0
@@ -771,6 +782,7 @@ F301_3: # Skipper's Retreat
 
 F301_4: # Shipyard
   - name: Text after intro
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC6E
     layer: 1
@@ -805,6 +817,7 @@ F301_4: # Shipyard
 
 F301_5: # Skipper's Retreat Shack
   - name: Text after chest
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC1B
     layer: 0
@@ -845,6 +858,7 @@ F302: # Lanayru Gorge
 
 F303: # Lanayru Caves
   - name: Fi text after chest
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC25
     layer: 0
@@ -896,6 +910,7 @@ F402: # Sealed Temple
       posz: 10540
       name: Tubo
   - name: Remove cs when entering ST
+    onlyif: reduce_panning_cutscenes == on
     type: objpatch
     room: 2
     index: 0
@@ -928,6 +943,7 @@ F404: # Temple of Hylia
 
 D003_0: # Sky Keep Courage Room
   - name: Remove Fi texts
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFC0F # Fi text
@@ -966,6 +982,7 @@ D003_1: # Sky Keep Earth Temple Room
 
 D003_2: # Sky Keep Power Room
   - name: Remove Fi texts
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFC33 # Fi text
@@ -990,6 +1007,7 @@ D003_2: # Sky Keep Power Room
 
 D003_3: # Sky Keep Wisdom Room
   - name: Remove Fi texts
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFC1B # Fi text
@@ -1045,21 +1063,12 @@ D003_5: # Sky Keep Skyview Temple Room
 
 D003_7: # Sky Keep Entrance Room
   - name: Remove objects
+    onlyif: reduce_fi_text == on
     type: objdelete
-    ids:
-      - 0xFC0B # Fi text
-      - 0xFC05 # Bars
+    id: 0xFC0B # Fi text
     layer: 0
     room: 0
     objtype: OBJ
-  - name: Remove bars opening cs
-    type: objpatch
-    id: 0xFC16
-    room: 0
-    layer: 4
-    objtype: STAG
-    object:
-      params1: 0xFF1516FF # 0x000000FF = event number
   - name: Add ammo pot to Sky Keep Entrance Room Bird Statue
     onlyif: ammo_availability == useful or ammo_availability == plentiful
     type: objadd
@@ -1136,6 +1145,7 @@ D003_7: # Sky Keep Entrance Room
     room: 5
     objtype: STAG
   - name: Remove Fi triggers in Miniboss room
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFC1A # Fi text about hitting the miniboss switch again
@@ -1223,18 +1233,21 @@ D101: # Ancient Cistern
     room: 10
     objtype: STAG
   - name: Remove BK panning Cutscene
+    onlyif: reduce_panning_cutscenes == on
     type: objdelete
     id: 0xFC7D # In basement showing Boss Key chest
     layer: 0
     room: 4
     objtype: STAG
   - name: Remove Waterfall switch Lily Pad Cutscene (room 0)
+    onlyif: no_lilypad_cutscenes == on
     type: objdelete
     id: 0xFC8D
     layer: 0
     room: 0
     objtype: STAG
   - name: Remove Lily Pad Cutscenes
+    onlyif: no_lilypad_cutscenes == on
     type: objdelete
     ids:
       - 0xFC1B # East part
@@ -1243,18 +1256,21 @@ D101: # Ancient Cistern
     room: 1
     objtype: STAG
   - name: Remove East part main Lily Pad Cutscene (room 2)
+    onlyif: no_lilypad_cutscenes == on
     type: objdelete
     id: 0xFC29
     layer: 0
     room: 2
     objtype: STAG
   - name: Remove Underground Lily Pad Cutscene (room 4)
+    onlyif: no_lilypad_cutscenes == on
     type: objdelete
     id: 0xFC83
     layer: 0
     room: 4
     objtype: STAG
   - name: Remove Lily Pad with Rupee Check Cutscene (room 5)
+    onlyif: no_lilypad_cutscenes == on
     type: objdelete
     ids:
       - 0xFC37 # Cam2Tag
@@ -1322,13 +1338,10 @@ D200: # Earth Temple
       posy: 6050
       posz: -13970
       name: Tubo
-  - name: Remove text triggers
+  - name: Remove Fi text triggers
+    onlyif: reduce_fi_text == on
     type: objdelete
-    ids:
-      - 0xFC51 # Ledd text before Bomb Bag (NpcTke)
-      - 0xFC52 # Bomb Bag from Ledd (NpcTke)
-      - 0xFC53 # 5 Bombs from Ledd (NpcTke)
-      - 0xFC5E # Fi text after bridge (NpcTke)
+    id: 0xFC5E # Fi text after bridge (NpcTke)
     layer: 0
     room: 1
     objtype: OBJ
@@ -1392,6 +1405,7 @@ D201: # Fire Sanctuary A (outer)
       posz: -14240
       name: Tubo
   - name: Remove BK chest panning cutscene
+    onlyif: reduce_panning_cutscenes == on
     type: objdelete
     id: 0xFC44
     layer: 0
@@ -1486,19 +1500,8 @@ D201_1: # Fire Sanctuary B (inner)
     objtype: OBJ
     object:
       posy: -200
-  - name: Remove Magmanos Cutscenes/Text
-    type: objdelete
-    ids:
-      - 0xFC11 # First trapped Mogma Cutscene
-      - 0xFC2B # Double Magmanos Cutscene (Can softlock apparently - from SD)
-      - 0xFC1E # Text after Magmanos
-      - 0xFC23 # Text after Magmanos
-      - 0xFC66 # Mogma Mitts tutorial text
-      - 0xFC2C # Camera pan after Mogma Mitts
-    layer: 0
-    room: 5
-    objtypes: [OBJ, STAG, OBJ, OBJ, OBJ, STAG]
   - name: Delete Camera Pan in first magmanos room
+    onlyif: reduce_panning_cutscenes == on
     type: objdelete
     id: 0xFC1B
     layer: 0
@@ -1578,6 +1581,7 @@ D300_1: # Lanayru Mining Facility B (back)
       posz: -22785
       name: Tubo
   - name: Remove CS after blowing up boxes # Only one of the boxes plays the CS
+    onlyif: no_explosion_cutscenes == on or no_box_cutscenes == on
     type: objpatch
     id: 0xFC62
     layer: 0
@@ -1645,24 +1649,28 @@ D301: # Sandship A (main)
       posz: 1690
       name: Tubo
   - name: Remove Fi text Before Boss Door
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC43
     layer: 4
     room: 9
     objtype: OBJ
   - name: Remove Fi text Generator 1
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC0F
     layer: 1
     room: 7
     objtype: OBJ
   - name: Remove Fi text Generator 2
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC12
     layer: 1
     room: 5
     objtype: OBJ
   - name: Remove Scervo Fi texts
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFC07 # After Scervo
@@ -1671,6 +1679,7 @@ D301: # Sandship A (main)
     room: 15
     objtype: OBJ
   - name: Remove Fi text After revealed timeshift stone
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFC4C
     layer: 1
@@ -1679,6 +1688,7 @@ D301: # Sandship A (main)
 
 D301_1: # Sandship B (escape)
   - name: Fi texts before tentalus
+    onlyif: reduce_fi_text == on
     type: objdelete
     ids:
       - 0xFC1D
@@ -1695,6 +1705,7 @@ D301_1: # Sandship B (escape)
 
 S100: # Farore's Silent Realm
   - name: Fi text near waking water
+    onlyif: reduce_fi_text == on
     type: objdelete
     id: 0xFCDB
     layer: 2

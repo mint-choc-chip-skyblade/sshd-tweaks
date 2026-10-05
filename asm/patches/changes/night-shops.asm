@@ -8,6 +8,7 @@
 ; The following asm patches the command 8 case to replace the code which
 ; forces the choices to remain the same until a new night (and relies on rng)
 ; to instead loop through the choices sequentially.
+; onlyif quick_night_shop_refresh == on
 .offset 0x7100584dd0
 ; x8 contains a pointer to the storyflag_mgr vtable
 ldr x8,[x8, #0x50] ; get the get_flag_or_counter function
@@ -35,6 +36,7 @@ b 0x7100584e80
 
 
 ; Patches nighttime Strich to behave the same as Rupin, above.
+; onlyif quick_night_shop_refresh == on
 .offset 0x71005b6db0
 ; x8 contains a pointer to the storyflag_mgr vtable
 ldr x8,[x8, #0x50] ; get the get_flag_or_counter function

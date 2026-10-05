@@ -2,6 +2,271 @@
 ## Gameplay Options ##
 ######################
 
+- name: quick_text
+  default_option: "off"
+  pretty_name: Quick Text (Hold B to auto-advance)
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Holding B will not clear textboxes."
+    - "on": "Holding B will rapidly clear consecutive textboxes."
+
+- name: quick_draw_bow
+  default_option: "on"
+  pretty_name: Quick Draw Bow with Button Controls (Hold L)
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Quick drawing the bow is not possible with button controls."
+    - "on": "Holding L will quickly draw back the bow (like shaking the left joy-con does when using motion controls)."
+
+- name: faster_loftwing
+  default_option: "off"
+  pretty_name: Faster Loftwing
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "The loftwing will fly at the regular speed."
+    - "on": "The loftwing will fly 5 times faster than regular speed (except when the story requires precise flying)."
+
+- name: faster_boat
+  default_option: "off"
+  pretty_name: Faster Skipper's Boat
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Skipper's boat will travel at the regular speed."
+    - "on": "Skipper's boat will travel 2 times faster than regular speed."
+
+- name: no_first_time_item_text
+  default_option: "on"
+  pretty_name: Remove First Time Item Pick Up Text
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Picking up an item for the first time will show a textbox."
+    - "on": "Picking up common items will not show a textbox (e.g. rupees, treasures, bugs, ammo)."
+
+- name: quick_night_shop_refresh
+  default_option: "on"
+  pretty_name: Refresh Night Shops without Sleeping
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Rupin's night market (selling treasures) and Strich's bug collection (selling bugs) will have a fixed selection available each night."
+    - "on": "Rupin's night market (selling treasures) and Strich's bug collection (selling bugs) will allow all treasures/bugs to be sold without sleeping."
+
+- name: no_beeping
+  default_option: "off"
+  pretty_name: Remove Interface Beeping
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "New items and abilities will flash and beep to attract attention."
+    - "on": "New items or abilities will not cause the interface to flash and beep."
+
+- name: ammo_availability
+  default_option: plentiful
+  pretty_name: Ammo Availability
+  pretty_options:
+    - Scarce
+    - Vanilla
+    - Useful
+    - Plentiful
+  options:
+    - scarce: "Ammo will only be available from chance-based drops and Rupin's Gear shop."
+    - vanilla: "Ammo will appear when breaking pots and barrels in the same way as the vanilla game."
+    - useful: "Ammo pots will be added in key places near checks requiring a specific ammo to reduce back-tracking."
+    - plentiful: "Ammo pots will be added next to all Bird Statues."
+
+- name: minigame_difficulty
+  default_option: easy
+  pretty_name: Minigame Difficulty
+  pretty_options:
+    - Guaranteed Win
+    - Easy
+    - Vanilla
+    - Hard
+  options:
+    - guaranteed_win: "Completing the minigame will guarantee the best reward."
+    - easy: "The threshold needed to earn a reward from each minigame will be reduced."
+    - vanilla: "The threshold needed to earn a reward from each minigame will be unchanged."
+    - hard: "The threshold needed to earn a reward from each minigame will be increased."
+
+- name: boss_key_puzzles
+  default_option: vanilla_orientation
+  pretty_name: Boss Key Puzzles
+  pretty_options:
+    - Correct Orientation
+    - Vanilla Orientation
+    - Random Orientation
+  options:
+    - correct_orientation: "Boss Keys will be oriented so that they can be immediately inserted into the boss doors."
+    - vanilla_orientation: "Boss Keys will start in their original orientations when you try to open boss doors."
+    - random_orientation: "Boss Keys will start in a random orientation when you try to open boss doors."
+
+- name: reduce_fi_text
+  default_option: "off"
+  pretty_name: Reduce Fi Text
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Fi will appear and offer her opinion like normal."
+    - "on": "Some Fi text is removed to reduce interruptions to the game."
+
+- name: no_explosion_cutscenes
+  default_option: "on"
+  pretty_name: Remove Cutscene after Explosions
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "A small cutscene will play after an explosion changes the environment."
+    - "on": "No cutscenes will play after explosions."
+
+- name: no_logs_cutscenes
+  default_option: "on"
+  pretty_name: Remove Cutscene after Rolling Logs
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Rolling logs off high ledges will play a small cutscene."
+    - "on": "No cutscenes will play after rolling logs off high ledges."
+
+- name: no_rope_cutscenes
+  default_option: "off"
+  pretty_name: Remove Cutscene after Unravelling Ropes
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Unravelling ropes will play a small cutscene."
+    - "on": "No cutscenes will play after unravelling ropes."
+
+- name: no_minecart_cutscenes
+  default_option: "on"
+  pretty_name: Remove Cutscene after Pushing Minecarts
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Pushing minecarts off ledges will play a small cutscene."
+    - "on": "No cutscenes will play after pushing minecarts off high ledges."
+
+- name: no_timeshift_cutscenes
+  default_option: "off"
+  pretty_name: Remove Cutscene after Activating Timeshift Stones
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Activating timeshift stones will play a small cutscene."
+    - "on": "No cutscenes will play after activating timeshift stones."
+
+- name: no_basketball_cutscenes
+  default_option: "off"
+  pretty_name: Remove Cutscene after Blowing Up Falling Statues
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Throwing a bomb into statues will play a small cutscene as they fall down."
+    - "on": "No cutscenes will play showing statues falling down."
+
+- name: no_box_cutscenes
+  default_option: "off"
+  pretty_name: Remove Cutscene after Interacting with Boxes
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Blowing up or displacing boxes will play a small cutscene."
+    - "on": "No cutscenes will play after blowing up or displacing boxes."
+
+- name: no_lilypad_cutscenes
+  default_option: "on"
+  pretty_name: Remove Cutscene after Flipping Lilypads
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Flipping lilypads may play a small cutscene."
+    - "on": "No cutscenes will play after flipping lilypads."
+
+- name: no_switch_cutscenes
+  default_option: "on"
+  pretty_name: Remove Cutscene after Flipping Switches
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Activating floor and wall switches will play a small cutscene the first time."
+    - "on": "No cutscenes will play after activating floor and wall switches."
+
+- name: reduce_panning_cutscenes
+  default_option: "off"
+  pretty_name: Reduce Panning Cutscenes
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "No panning cutscenes will be removed."
+    - "on": "Some panning cutscenes (slowly showing new areas) will be removed."
+
+- name: spawn_hearts
+  default_option: "on"
+  pretty_name: Spawn Hearts and Heart Flowers
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Heart flowers will not spawn and defeating enemies, breaking pots or barrels, cutting grass, and digging spots will not produce hearts."
+    - "on": "Hearts will be obtainable by: defeating enemies, breaking pots or barrels, cutting grass, and digging up digging spots. Heart flowers will also spawn."
+
+- name: faster_air_meter_depletion
+  default_option: "off"
+  pretty_name: Faster Air Meter Depletion
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "The air meter will deplete at the normal rate when underwater."
+    - "on": "The air meter will deplete at twice the normal rate when underwater like in Hero Mode."
+
+- name: upgraded_skyward_strike
+  tracker_important: true
+  default_option: "on"
+  pretty_name: Upgraded Skyward Strike
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Only the True Master Sword will have the fully upgraded Skyward Strike."
+    - "on": "The Goddess Sword (and better swords) will have the fully upgraded Skyward Strike (charges quicker and travels farther). This has logical changes."
+
+- name: damage_multiplier
+  default_option: "1"
+  pretty_name: Damage Multiplier
+  random_low: "0"
+  random_high: "4"
+  pretty_options:
+    - 0-80
+  options:
+    - 0-80: "Determines the overall damage multiplier.
+        <b>Normal Mode</b> (default) damage is x1.
+        <b>Hero Mode</b> (new game +) damage is x2.
+        At x0, the player will be invincible and not take any damage.
+        At x12 or higher, the hot cave in Eldin Volcano logically requires Fireshield Earrings to traverse."
+
 - name: enable_back_in_time
   default_option: "off"
   pretty_name: Enable Back in Time (BiT)
@@ -22,90 +287,35 @@
     - "off": "You will not be able to fly at night. If the Require Natural Night Connections setting is disabled, night flying will be enabled to facilitate this."
     - "on": "You will be able to call your loftwing and fly in The Sky at night."
 
-- name: ammo_availability
-  default_option: plentiful
-  pretty_name: Ammo Availability
-  pretty_options:
-    - Scarce
-    - Vanilla
-    - Useful
-    - Plentiful
-  options:
-    - scarce: "Ammo will only be available from chance-based drops and Rupin's Gear shop."
-    - vanilla: "Ammo will appear when breaking pots and barrels in the same way as the vanilla game."
-    - useful: "Ammo pots will be added in key places near checks requiring a specific ammo to reduce back-tracking."
-    - plentiful: "Ammo pots will be added next to all Bird Statues."
-
-- name: boss_key_puzzles
-  default_option: vanilla_orientation
-  pretty_name: Boss Key Puzzles
-  pretty_options:
-    - Correct Orientation
-    - Vanilla Orientation
-    - Random Orientation
-  options:
-    - correct_orientation: "Boss Keys will be oriented so that they can be immediately inserted into the boss doors."
-    - vanilla_orientation: "Boss Keys will start in their original orientations when you try to open boss doors."
-    - random_orientation: "Boss Keys will start in a random orientation when you try to open boss doors."
-
-- name: upgraded_skyward_strike
-  tracker_important: true
-  default_option: "on"
-  pretty_name: Upgraded Skyward Strike
-  pretty_options:
-    - "Off"
-    - "On"
-  options:
-    - "off": "Only the True Master Sword will have the fully upgraded Skyward Strike."
-    - "on": "The Goddess Sword (and better swords) will have the fully upgraded Skyward Strike (charges quicker and travels farther). This has logical changes."
-
-- name: faster_air_meter_depletion
+- name: early_stamina_potion
   default_option: "off"
-  pretty_name: Faster Air Meter Depletion
+  pretty_name: Unlock Stamina Potion Early
   pretty_options:
     - "Off"
     - "On"
   options:
-    - "off": "The air meter will deplete at the normal rate when underwater."
-    - "on": "The air meter will deplete at twice the normal rate when underwater like in Hero Mode."
+    - "off": "Stamina potions will be unlocked after beating the first dungeon in Lanayru."
+    - "on": "Stamina potions will be unlocked from the start of the game."
 
-- name: spawn_hearts
+- name: early_air_potion
+  default_option: "off"
+  pretty_name: Unlock Air Potion Early
+  pretty_options:
+    - "Off"
+    - "On"
+  options:
+    - "off": "Air potions will be unlocked after clearing the first trial."
+    - "on": "Air potions will be unlocked from the start of the game."
+
+- name: no_profanity_filter
   default_option: "on"
-  pretty_name: Spawn Hearts and Heart Flowers
+  pretty_name: Disable Profanity Filter
   pretty_options:
     - "Off"
     - "On"
   options:
-    - "off": "Heart flowers will not spawn and defeating enemies, breaking pots or barrels, cutting grass, and digging spots will not produce hearts."
-    - "on": "Hearts will be obtainable by: defeating enemies, breaking pots or barrels, cutting grass, and digging up digging spots. Heart flowers will also spawn."
-
-- name: damage_multiplier
-  default_option: "1"
-  pretty_name: Damage Multiplier
-  random_low: "0"
-  random_high: "4"
-  pretty_options:
-    - 0-80
-  options:
-    - 0-80: "Determines the overall damage multiplier.
-        <b>Normal Mode</b> (default) damage is x1.
-        <b>Hero Mode</b> (new game +) damage is x2.
-        At x0, the player will be invincible and not take any damage.
-        At x12 or higher, the hot cave in Eldin Volcano logically requires Fireshield Earrings to traverse."
-
-- name: minigame_difficulty
-  default_option: easy
-  pretty_name: Minigame Difficulty
-  pretty_options:
-    - Guaranteed Win
-    - Easy
-    - Vanilla
-    - Hard
-  options:
-    - guaranteed_win: "Completing the minigame will guarantee the best reward."
-    - easy: "The threshold needed to earn a reward from each minigame will be reduced."
-    - vanilla: "The threshold needed to earn a reward from each minigame will be unchanged."
-    - hard: "The threshold needed to earn a reward from each minigame will be increased."
+    - "off": "A profanity filter will restrict what can be entered as a file name."
+    - "on": "No restrictions will be placed on what can be entered as a file name."
 
 ######################
 ## Cosmetic Options ##

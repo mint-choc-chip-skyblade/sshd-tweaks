@@ -15,19 +15,17 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFontComboBox, QFrame,
-    QGridLayout, QGroupBox, QHBoxLayout, QLabel,
-    QLineEdit, QMainWindow, QPushButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QSpinBox, QTabWidget,
-    QVBoxLayout, QWidget)
-
-from gui.components.tristate_check_box import RandoTriStateCheckBox
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFontComboBox,
+    QFrame, QGridLayout, QGroupBox, QHBoxLayout,
+    QLabel, QLineEdit, QMainWindow, QPushButton,
+    QScrollArea, QSizePolicy, QSpacerItem, QSpinBox,
+    QTabWidget, QVBoxLayout, QWidget)
 
 class Ui_main_window(object):
     def setupUi(self, main_window):
         if not main_window.objectName():
             main_window.setObjectName(u"main_window")
-        main_window.resize(900, 800)
+        main_window.resize(900, 849)
         main_window.setStyleSheet(u"QToolTip {color: #000000; background-color: #FFFFFF;}")
         self.central_widget = QWidget(main_window)
         self.central_widget.setObjectName(u"central_widget")
@@ -275,51 +273,57 @@ class Ui_main_window(object):
         self.tweaks_tab.setSizePolicy(sizePolicy1)
         self.gridLayout_9 = QGridLayout(self.tweaks_tab)
         self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.dungeons_group_box = QGroupBox(self.tweaks_tab)
+        self.scrollArea_3 = QScrollArea(self.tweaks_tab)
+        self.scrollArea_3.setObjectName(u"scrollArea_3")
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_3 = QWidget()
+        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 844, 1145))
+        self.verticalLayout_7 = QVBoxLayout(self.scrollAreaWidgetContents_3)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.dungeons_group_box = QGroupBox(self.scrollAreaWidgetContents_3)
         self.dungeons_group_box.setObjectName(u"dungeons_group_box")
         self.verticalLayout_16 = QVBoxLayout(self.dungeons_group_box)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
-        self.boss_key_puzzles_label = QLabel(self.dungeons_group_box)
-        self.boss_key_puzzles_label.setObjectName(u"boss_key_puzzles_label")
+        self.setting_quick_text = QCheckBox(self.dungeons_group_box)
+        self.setting_quick_text.setObjectName(u"setting_quick_text")
 
-        self.verticalLayout_16.addWidget(self.boss_key_puzzles_label)
+        self.verticalLayout_16.addWidget(self.setting_quick_text)
 
-        self.setting_boss_key_puzzles = QComboBox(self.dungeons_group_box)
-        self.setting_boss_key_puzzles.setObjectName(u"setting_boss_key_puzzles")
+        self.setting_quick_draw_bow = QCheckBox(self.dungeons_group_box)
+        self.setting_quick_draw_bow.setObjectName(u"setting_quick_draw_bow")
 
-        self.verticalLayout_16.addWidget(self.setting_boss_key_puzzles)
+        self.verticalLayout_16.addWidget(self.setting_quick_draw_bow)
 
-        self.setting_spawn_hearts = RandoTriStateCheckBox(self.dungeons_group_box)
-        self.setting_spawn_hearts.setObjectName(u"setting_spawn_hearts")
+        self.setting_faster_loftwing = QCheckBox(self.dungeons_group_box)
+        self.setting_faster_loftwing.setObjectName(u"setting_faster_loftwing")
 
-        self.verticalLayout_16.addWidget(self.setting_spawn_hearts)
+        self.verticalLayout_16.addWidget(self.setting_faster_loftwing)
 
-        self.setting_upgraded_skyward_strike = RandoTriStateCheckBox(self.dungeons_group_box)
-        self.setting_upgraded_skyward_strike.setObjectName(u"setting_upgraded_skyward_strike")
+        self.setting_faster_boat = QCheckBox(self.dungeons_group_box)
+        self.setting_faster_boat.setObjectName(u"setting_faster_boat")
 
-        self.verticalLayout_16.addWidget(self.setting_upgraded_skyward_strike)
+        self.verticalLayout_16.addWidget(self.setting_faster_boat)
 
-        self.setting_faster_air_meter_depletion = RandoTriStateCheckBox(self.dungeons_group_box)
-        self.setting_faster_air_meter_depletion.setObjectName(u"setting_faster_air_meter_depletion")
+        self.setting_reduce_fi_text = QCheckBox(self.dungeons_group_box)
+        self.setting_reduce_fi_text.setObjectName(u"setting_reduce_fi_text")
 
-        self.verticalLayout_16.addWidget(self.setting_faster_air_meter_depletion)
+        self.verticalLayout_16.addWidget(self.setting_reduce_fi_text)
 
-        self.damage_multiplier_layout = QHBoxLayout()
-        self.damage_multiplier_layout.setObjectName(u"damage_multiplier_layout")
-        self.damage_multiplier_label = QLabel(self.dungeons_group_box)
-        self.damage_multiplier_label.setObjectName(u"damage_multiplier_label")
+        self.setting_no_first_time_item_text = QCheckBox(self.dungeons_group_box)
+        self.setting_no_first_time_item_text.setObjectName(u"setting_no_first_time_item_text")
 
-        self.damage_multiplier_layout.addWidget(self.damage_multiplier_label)
+        self.verticalLayout_16.addWidget(self.setting_no_first_time_item_text)
 
-        self.setting_damage_multiplier = QSpinBox(self.dungeons_group_box)
-        self.setting_damage_multiplier.setObjectName(u"setting_damage_multiplier")
-        sizePolicy5.setHeightForWidth(self.setting_damage_multiplier.sizePolicy().hasHeightForWidth())
-        self.setting_damage_multiplier.setSizePolicy(sizePolicy5)
+        self.setting_quick_night_shop_refresh = QCheckBox(self.dungeons_group_box)
+        self.setting_quick_night_shop_refresh.setObjectName(u"setting_quick_night_shop_refresh")
 
-        self.damage_multiplier_layout.addWidget(self.setting_damage_multiplier)
+        self.verticalLayout_16.addWidget(self.setting_quick_night_shop_refresh)
 
+        self.setting_no_beeping = QCheckBox(self.dungeons_group_box)
+        self.setting_no_beeping.setObjectName(u"setting_no_beeping")
 
-        self.verticalLayout_16.addLayout(self.damage_multiplier_layout)
+        self.verticalLayout_16.addWidget(self.setting_no_beeping)
 
         self.ammo_availability_label = QLabel(self.dungeons_group_box)
         self.ammo_availability_label.setObjectName(u"ammo_availability_label")
@@ -341,43 +345,153 @@ class Ui_main_window(object):
 
         self.verticalLayout_16.addWidget(self.setting_minigame_difficulty)
 
-        self.random_trial_object_positions_label = QLabel(self.dungeons_group_box)
-        self.random_trial_object_positions_label.setObjectName(u"random_trial_object_positions_label")
+        self.boss_key_puzzles_label = QLabel(self.dungeons_group_box)
+        self.boss_key_puzzles_label.setObjectName(u"boss_key_puzzles_label")
 
-        self.verticalLayout_16.addWidget(self.random_trial_object_positions_label)
+        self.verticalLayout_16.addWidget(self.boss_key_puzzles_label)
 
-        self.setting_random_trial_object_positions = QComboBox(self.dungeons_group_box)
-        self.setting_random_trial_object_positions.setObjectName(u"setting_random_trial_object_positions")
+        self.setting_boss_key_puzzles = QComboBox(self.dungeons_group_box)
+        self.setting_boss_key_puzzles.setObjectName(u"setting_boss_key_puzzles")
 
-        self.verticalLayout_16.addWidget(self.setting_random_trial_object_positions)
+        self.verticalLayout_16.addWidget(self.setting_boss_key_puzzles)
 
 
-        self.gridLayout_9.addWidget(self.dungeons_group_box, 0, 0, 1, 1)
+        self.verticalLayout_7.addWidget(self.dungeons_group_box)
 
-        self.dungeons_vspacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.groupBox = QGroupBox(self.scrollAreaWidgetContents_3)
+        self.groupBox.setObjectName(u"groupBox")
+        self.verticalLayout_13 = QVBoxLayout(self.groupBox)
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.setting_no_explosion_cutscenes = QCheckBox(self.groupBox)
+        self.setting_no_explosion_cutscenes.setObjectName(u"setting_no_explosion_cutscenes")
 
-        self.gridLayout_9.addItem(self.dungeons_vspacer, 2, 0, 1, 1)
+        self.verticalLayout_13.addWidget(self.setting_no_explosion_cutscenes)
 
-        self.other_settings_group_box = QGroupBox(self.tweaks_tab)
+        self.setting_no_logs_cutscenes = QCheckBox(self.groupBox)
+        self.setting_no_logs_cutscenes.setObjectName(u"setting_no_logs_cutscenes")
+
+        self.verticalLayout_13.addWidget(self.setting_no_logs_cutscenes)
+
+        self.setting_no_rope_cutscenes = QCheckBox(self.groupBox)
+        self.setting_no_rope_cutscenes.setObjectName(u"setting_no_rope_cutscenes")
+
+        self.verticalLayout_13.addWidget(self.setting_no_rope_cutscenes)
+
+        self.setting_no_minecart_cutscenes = QCheckBox(self.groupBox)
+        self.setting_no_minecart_cutscenes.setObjectName(u"setting_no_minecart_cutscenes")
+
+        self.verticalLayout_13.addWidget(self.setting_no_minecart_cutscenes)
+
+        self.setting_no_timeshift_cutscenes = QCheckBox(self.groupBox)
+        self.setting_no_timeshift_cutscenes.setObjectName(u"setting_no_timeshift_cutscenes")
+
+        self.verticalLayout_13.addWidget(self.setting_no_timeshift_cutscenes)
+
+        self.setting_no_basketball_cutscenes = QCheckBox(self.groupBox)
+        self.setting_no_basketball_cutscenes.setObjectName(u"setting_no_basketball_cutscenes")
+
+        self.verticalLayout_13.addWidget(self.setting_no_basketball_cutscenes)
+
+        self.setting_no_box_cutscenes = QCheckBox(self.groupBox)
+        self.setting_no_box_cutscenes.setObjectName(u"setting_no_box_cutscenes")
+
+        self.verticalLayout_13.addWidget(self.setting_no_box_cutscenes)
+
+        self.setting_no_lilypad_cutscenes = QCheckBox(self.groupBox)
+        self.setting_no_lilypad_cutscenes.setObjectName(u"setting_no_lilypad_cutscenes")
+
+        self.verticalLayout_13.addWidget(self.setting_no_lilypad_cutscenes)
+
+        self.setting_no_switch_cutscenes = QCheckBox(self.groupBox)
+        self.setting_no_switch_cutscenes.setObjectName(u"setting_no_switch_cutscenes")
+
+        self.verticalLayout_13.addWidget(self.setting_no_switch_cutscenes)
+
+        self.setting_reduce_panning_cutscenes = QCheckBox(self.groupBox)
+        self.setting_reduce_panning_cutscenes.setObjectName(u"setting_reduce_panning_cutscenes")
+
+        self.verticalLayout_13.addWidget(self.setting_reduce_panning_cutscenes)
+
+
+        self.verticalLayout_7.addWidget(self.groupBox)
+
+        self.hero_mode_settings_groupbox = QGroupBox(self.scrollAreaWidgetContents_3)
+        self.hero_mode_settings_groupbox.setObjectName(u"hero_mode_settings_groupbox")
+        self.verticalLayout_14 = QVBoxLayout(self.hero_mode_settings_groupbox)
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.setting_spawn_hearts = QCheckBox(self.hero_mode_settings_groupbox)
+        self.setting_spawn_hearts.setObjectName(u"setting_spawn_hearts")
+
+        self.verticalLayout_14.addWidget(self.setting_spawn_hearts)
+
+        self.setting_faster_air_meter_depletion = QCheckBox(self.hero_mode_settings_groupbox)
+        self.setting_faster_air_meter_depletion.setObjectName(u"setting_faster_air_meter_depletion")
+
+        self.verticalLayout_14.addWidget(self.setting_faster_air_meter_depletion)
+
+        self.setting_upgraded_skyward_strike = QCheckBox(self.hero_mode_settings_groupbox)
+        self.setting_upgraded_skyward_strike.setObjectName(u"setting_upgraded_skyward_strike")
+
+        self.verticalLayout_14.addWidget(self.setting_upgraded_skyward_strike)
+
+        self.damage_multiplier_layout = QHBoxLayout()
+        self.damage_multiplier_layout.setObjectName(u"damage_multiplier_layout")
+        self.damage_multiplier_label = QLabel(self.hero_mode_settings_groupbox)
+        self.damage_multiplier_label.setObjectName(u"damage_multiplier_label")
+
+        self.damage_multiplier_layout.addWidget(self.damage_multiplier_label)
+
+        self.setting_damage_multiplier = QSpinBox(self.hero_mode_settings_groupbox)
+        self.setting_damage_multiplier.setObjectName(u"setting_damage_multiplier")
+        sizePolicy5.setHeightForWidth(self.setting_damage_multiplier.sizePolicy().hasHeightForWidth())
+        self.setting_damage_multiplier.setSizePolicy(sizePolicy5)
+
+        self.damage_multiplier_layout.addWidget(self.setting_damage_multiplier)
+
+
+        self.verticalLayout_14.addLayout(self.damage_multiplier_layout)
+
+
+        self.verticalLayout_7.addWidget(self.hero_mode_settings_groupbox)
+
+        self.other_settings_group_box = QGroupBox(self.scrollAreaWidgetContents_3)
         self.other_settings_group_box.setObjectName(u"other_settings_group_box")
         sizePolicy.setHeightForWidth(self.other_settings_group_box.sizePolicy().hasHeightForWidth())
         self.other_settings_group_box.setSizePolicy(sizePolicy)
         self.verticalLayout_32 = QVBoxLayout(self.other_settings_group_box)
         self.verticalLayout_32.setObjectName(u"verticalLayout_32")
-        self.setting_enable_back_in_time = RandoTriStateCheckBox(self.other_settings_group_box)
+        self.setting_enable_back_in_time = QCheckBox(self.other_settings_group_box)
         self.setting_enable_back_in_time.setObjectName(u"setting_enable_back_in_time")
 
         self.verticalLayout_32.addWidget(self.setting_enable_back_in_time)
 
-        self.setting_allow_flying_at_night = RandoTriStateCheckBox(self.other_settings_group_box)
+        self.setting_allow_flying_at_night = QCheckBox(self.other_settings_group_box)
         self.setting_allow_flying_at_night.setObjectName(u"setting_allow_flying_at_night")
 
         self.verticalLayout_32.addWidget(self.setting_allow_flying_at_night)
 
+        self.setting_early_stamina_potion = QCheckBox(self.other_settings_group_box)
+        self.setting_early_stamina_potion.setObjectName(u"setting_early_stamina_potion")
 
-        self.gridLayout_9.addWidget(self.other_settings_group_box, 1, 0, 1, 1)
+        self.verticalLayout_32.addWidget(self.setting_early_stamina_potion)
 
-        self.gridLayout_9.setColumnStretch(0, 1)
+        self.setting_early_air_potion = QCheckBox(self.other_settings_group_box)
+        self.setting_early_air_potion.setObjectName(u"setting_early_air_potion")
+
+        self.verticalLayout_32.addWidget(self.setting_early_air_potion)
+
+        self.setting_no_profanity_filter = QCheckBox(self.other_settings_group_box)
+        self.setting_no_profanity_filter.setObjectName(u"setting_no_profanity_filter")
+
+        self.verticalLayout_32.addWidget(self.setting_no_profanity_filter)
+
+
+        self.verticalLayout_7.addWidget(self.other_settings_group_box)
+
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
+
+        self.gridLayout_9.addWidget(self.scrollArea_3, 2, 0, 1, 1)
+
         self.tab_widget.addTab(self.tweaks_tab, "")
         self.cosmetics_tab = QWidget()
         self.cosmetics_tab.setObjectName(u"cosmetics_tab")
@@ -386,24 +500,32 @@ class Ui_main_window(object):
         self.verticalLayout_10 = QVBoxLayout()
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.verticalLayout_10.setContentsMargins(0, -1, -1, -1)
-        self.player_cosmetics_group_box = QGroupBox(self.cosmetics_tab)
+        self.scrollArea_2 = QScrollArea(self.cosmetics_tab)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 243, 628))
+        self.verticalLayout_5 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.player_cosmetics_group_box = QGroupBox(self.scrollAreaWidgetContents_2)
         self.player_cosmetics_group_box.setObjectName(u"player_cosmetics_group_box")
         self.verticalLayout_37 = QVBoxLayout(self.player_cosmetics_group_box)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
-        self.setting_tunic_swap = RandoTriStateCheckBox(self.player_cosmetics_group_box)
+        self.setting_tunic_swap = QCheckBox(self.player_cosmetics_group_box)
         self.setting_tunic_swap.setObjectName(u"setting_tunic_swap")
 
         self.verticalLayout_37.addWidget(self.setting_tunic_swap)
 
-        self.setting_lightning_skyward_strike = RandoTriStateCheckBox(self.player_cosmetics_group_box)
+        self.setting_lightning_skyward_strike = QCheckBox(self.player_cosmetics_group_box)
         self.setting_lightning_skyward_strike.setObjectName(u"setting_lightning_skyward_strike")
 
         self.verticalLayout_37.addWidget(self.setting_lightning_skyward_strike)
 
 
-        self.verticalLayout_10.addWidget(self.player_cosmetics_group_box)
+        self.verticalLayout_5.addWidget(self.player_cosmetics_group_box)
 
-        self.audio_cosmetics_group_box = QGroupBox(self.cosmetics_tab)
+        self.audio_cosmetics_group_box = QGroupBox(self.scrollAreaWidgetContents_2)
         self.audio_cosmetics_group_box.setObjectName(u"audio_cosmetics_group_box")
         self.verticalLayout_35 = QVBoxLayout(self.audio_cosmetics_group_box)
         self.verticalLayout_35.setObjectName(u"verticalLayout_35")
@@ -417,12 +539,12 @@ class Ui_main_window(object):
 
         self.verticalLayout_35.addWidget(self.setting_randomize_music)
 
-        self.setting_cutoff_game_over_music = RandoTriStateCheckBox(self.audio_cosmetics_group_box)
+        self.setting_cutoff_game_over_music = QCheckBox(self.audio_cosmetics_group_box)
         self.setting_cutoff_game_over_music.setObjectName(u"setting_cutoff_game_over_music")
 
         self.verticalLayout_35.addWidget(self.setting_cutoff_game_over_music)
 
-        self.setting_remove_enemy_music = RandoTriStateCheckBox(self.audio_cosmetics_group_box)
+        self.setting_remove_enemy_music = QCheckBox(self.audio_cosmetics_group_box)
         self.setting_remove_enemy_music.setObjectName(u"setting_remove_enemy_music")
 
         self.verticalLayout_35.addWidget(self.setting_remove_enemy_music)
@@ -438,13 +560,13 @@ class Ui_main_window(object):
         self.verticalLayout_35.addWidget(self.setting_low_health_beeping_speed)
 
 
-        self.verticalLayout_10.addWidget(self.audio_cosmetics_group_box)
+        self.verticalLayout_5.addWidget(self.audio_cosmetics_group_box)
 
-        self.environment_cosmetics_group_box = QGroupBox(self.cosmetics_tab)
+        self.environment_cosmetics_group_box = QGroupBox(self.scrollAreaWidgetContents_2)
         self.environment_cosmetics_group_box.setObjectName(u"environment_cosmetics_group_box")
         self.verticalLayout_33 = QVBoxLayout(self.environment_cosmetics_group_box)
         self.verticalLayout_33.setObjectName(u"verticalLayout_33")
-        self.setting_starry_skies = RandoTriStateCheckBox(self.environment_cosmetics_group_box)
+        self.setting_starry_skies = QCheckBox(self.environment_cosmetics_group_box)
         self.setting_starry_skies.setObjectName(u"setting_starry_skies")
 
         self.verticalLayout_33.addWidget(self.setting_starry_skies)
@@ -490,11 +612,11 @@ class Ui_main_window(object):
         self.verticalLayout_33.addWidget(self.setting_nighttime_cloud_color)
 
 
-        self.verticalLayout_10.addWidget(self.environment_cosmetics_group_box)
+        self.verticalLayout_5.addWidget(self.environment_cosmetics_group_box)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
 
-        self.verticalLayout_10.addItem(self.verticalSpacer)
+        self.verticalLayout_10.addWidget(self.scrollArea_2)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_10)
@@ -508,46 +630,64 @@ class Ui_main_window(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.verticalLayout_9 = QVBoxLayout()
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.file_setup_group_box = QGroupBox(self.advanced_tab)
+        self.scrollArea = QScrollArea(self.advanced_tab)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 405, 651))
+        self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.file_setup_group_box = QGroupBox(self.scrollAreaWidgetContents)
         self.file_setup_group_box.setObjectName(u"file_setup_group_box")
         sizePolicy.setHeightForWidth(self.file_setup_group_box.sizePolicy().hasHeightForWidth())
         self.file_setup_group_box.setSizePolicy(sizePolicy)
         self.verticalLayout_31 = QVBoxLayout(self.file_setup_group_box)
         self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(-1, 0, -1, -1)
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(-1, 0, -1, -1)
         self.open_folders_label = QLabel(self.file_setup_group_box)
         self.open_folders_label.setObjectName(u"open_folders_label")
 
-        self.verticalLayout_31.addWidget(self.open_folders_label)
+        self.verticalLayout.addWidget(self.open_folders_label)
 
         self.open_output_folder_button = QPushButton(self.file_setup_group_box)
         self.open_output_folder_button.setObjectName(u"open_output_folder_button")
 
-        self.verticalLayout_31.addWidget(self.open_output_folder_button)
+        self.verticalLayout.addWidget(self.open_output_folder_button)
 
         self.open_extract_folder_button = QPushButton(self.file_setup_group_box)
         self.open_extract_folder_button.setObjectName(u"open_extract_folder_button")
 
-        self.verticalLayout_31.addWidget(self.open_extract_folder_button)
+        self.verticalLayout.addWidget(self.open_extract_folder_button)
 
-        self.utils_hline_2 = QFrame(self.file_setup_group_box)
-        self.utils_hline_2.setObjectName(u"utils_hline_2")
-        self.utils_hline_2.setFrameShape(QFrame.Shape.HLine)
-        self.utils_hline_2.setFrameShadow(QFrame.Shadow.Sunken)
 
-        self.verticalLayout_31.addWidget(self.utils_hline_2)
+        self.horizontalLayout_5.addLayout(self.verticalLayout)
 
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.output_label = QLabel(self.file_setup_group_box)
         self.output_label.setObjectName(u"output_label")
         sizePolicy.setHeightForWidth(self.output_label.sizePolicy().hasHeightForWidth())
         self.output_label.setSizePolicy(sizePolicy)
 
-        self.verticalLayout_31.addWidget(self.output_label)
+        self.verticalLayout_3.addWidget(self.output_label)
 
         self.config_output = QLineEdit(self.file_setup_group_box)
         self.config_output.setObjectName(u"config_output")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.config_output.sizePolicy().hasHeightForWidth())
+        self.config_output.setSizePolicy(sizePolicy6)
         self.config_output.setReadOnly(True)
 
-        self.verticalLayout_31.addWidget(self.config_output)
+        self.verticalLayout_3.addWidget(self.config_output)
 
         self.output_button_layout = QHBoxLayout()
         self.output_button_layout.setObjectName(u"output_button_layout")
@@ -562,7 +702,13 @@ class Ui_main_window(object):
         self.output_button_layout.addWidget(self.browse_output_button)
 
 
-        self.verticalLayout_31.addLayout(self.output_button_layout)
+        self.verticalLayout_3.addLayout(self.output_button_layout)
+
+
+        self.horizontalLayout_5.addLayout(self.verticalLayout_3)
+
+
+        self.verticalLayout_31.addLayout(self.horizontalLayout_5)
 
         self.utils_hline_3 = QFrame(self.file_setup_group_box)
         self.utils_hline_3.setObjectName(u"utils_hline_3")
@@ -608,15 +754,15 @@ class Ui_main_window(object):
 
         self.other_mods_scroll_area = QScrollArea(self.other_mods_group_box)
         self.other_mods_scroll_area.setObjectName(u"other_mods_scroll_area")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.other_mods_scroll_area.sizePolicy().hasHeightForWidth())
-        self.other_mods_scroll_area.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.other_mods_scroll_area.sizePolicy().hasHeightForWidth())
+        self.other_mods_scroll_area.setSizePolicy(sizePolicy7)
         self.other_mods_scroll_area.setWidgetResizable(True)
         self.other_mods_scroll_widget = QWidget()
         self.other_mods_scroll_widget.setObjectName(u"other_mods_scroll_widget")
-        self.other_mods_scroll_widget.setGeometry(QRect(0, 0, 419, 208))
+        self.other_mods_scroll_widget.setGeometry(QRect(0, 0, 68, 298))
         self.other_mods_scroll_layout = QVBoxLayout(self.other_mods_scroll_widget)
         self.other_mods_scroll_layout.setObjectName(u"other_mods_scroll_layout")
         self.other_mods_scroll_area.setWidget(self.other_mods_scroll_widget)
@@ -649,7 +795,11 @@ class Ui_main_window(object):
         self.verticalLayout_31.addItem(self.verticalSpacer_2)
 
 
-        self.verticalLayout_9.addWidget(self.file_setup_group_box)
+        self.verticalLayout_6.addWidget(self.file_setup_group_box)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_9.addWidget(self.scrollArea)
 
 
         self.horizontalLayout_4.addLayout(self.verticalLayout_9)
@@ -662,12 +812,12 @@ class Ui_main_window(object):
         self.settings_descriptions_layout.setObjectName(u"settings_descriptions_layout")
         self.settings_current_option_description_label = QLabel(self.central_widget)
         self.settings_current_option_description_label.setObjectName(u"settings_current_option_description_label")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Maximum)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.settings_current_option_description_label.sizePolicy().hasHeightForWidth())
-        self.settings_current_option_description_label.setSizePolicy(sizePolicy7)
-        self.settings_current_option_description_label.setMinimumSize(QSize(0, 64))
+        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Maximum)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.settings_current_option_description_label.sizePolicy().hasHeightForWidth())
+        self.settings_current_option_description_label.setSizePolicy(sizePolicy8)
+        self.settings_current_option_description_label.setMinimumSize(QSize(0, 160))
         self.settings_current_option_description_label.setTextFormat(Qt.TextFormat.RichText)
         self.settings_current_option_description_label.setWordWrap(True)
 
@@ -675,8 +825,8 @@ class Ui_main_window(object):
 
         self.settings_default_option_description_label = QLabel(self.central_widget)
         self.settings_default_option_description_label.setObjectName(u"settings_default_option_description_label")
-        sizePolicy7.setHeightForWidth(self.settings_default_option_description_label.sizePolicy().hasHeightForWidth())
-        self.settings_default_option_description_label.setSizePolicy(sizePolicy7)
+        sizePolicy8.setHeightForWidth(self.settings_default_option_description_label.sizePolicy().hasHeightForWidth())
+        self.settings_default_option_description_label.setSizePolicy(sizePolicy8)
         self.settings_default_option_description_label.setMinimumSize(QSize(0, 64))
         self.settings_default_option_description_label.setWordWrap(True)
 
@@ -709,11 +859,11 @@ class Ui_main_window(object):
 
         self.patch_button = QPushButton(self.central_widget)
         self.patch_button.setObjectName(u"patch_button")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.patch_button.sizePolicy().hasHeightForWidth())
-        self.patch_button.setSizePolicy(sizePolicy8)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.patch_button.sizePolicy().hasHeightForWidth())
+        self.patch_button.setSizePolicy(sizePolicy9)
 
         self.footer_buttons.addWidget(self.patch_button)
 
@@ -724,7 +874,7 @@ class Ui_main_window(object):
 
         self.retranslateUi(main_window)
 
-        self.tab_widget.setCurrentIndex(3)
+        self.tab_widget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(main_window)
@@ -736,10 +886,10 @@ class Ui_main_window(object):
         self.how_to_extract_label.setText(QCoreApplication.translate("main_window", u"<html><head/><body><p><span style=\" font-weight:700;\">Extract the Game</span>:</p><p>Before modifying the base game, you need to have a valid extract of the 1.0.1 version of the game.</p><p>Please follow our handy setup guides for the <a href=\"https://docs.google.com/document/d/1VXNME7SVD5EU7NNn9dQ15_Q9-v9OJAHOX-hSor0n2dg\"><span style=\" text-decoration: underline; color:#9a0089;\">Nintendo Switch console</span></a> or for <a href=\"https://docs.google.com/document/d/1HHQRXND0n-ZrmhEl4eXjzMANQ-xHK3pKKXPQqSbwXwY\"><span style=\" text-decoration: underline; color:#9a0089;\">emulator</span></a>.</p></body></html>", None))
         self.choose_settings_label.setText(QCoreApplication.translate("main_window", u"<html><head/><body><p><span style=\" font-weight:700;\">Select your Tweaks:</span></p><p>Go to the &quot;Tweaks&quot; tab and select your choices!</p></body></html>", None))
         self.how_to_generate_label.setText(QCoreApplication.translate("main_window", u"<html><head/><body><p><span style=\" font-weight:700;\">Patch the Game</span>:</p><p>Once you're ready, click the <span style=\" font-family:'Courier New';\">Patch</span> button in the bottom right. The program will begin to generate a game patch with your selected tweaks and mods.</p></body></html>", None))
-        self.how_to_running_label.setText(QCoreApplication.translate("main_window", u"<html><head/><body><p><span style=\" font-weight:700;\">Play the Game</span>:</p><p>You can play the modified game either on a modded Nintendo Switch console or on an emulator.</p><p>Please follow the instructions in our setup guides for <a href=\"https://docs.google.com/document/d/1VXNME7SVD5EU7NNn9dQ15_Q9-v9OJAHOX-hSor0n2dg\"><span style=\" text-decoration: underline; color:#9a0089;\">Nintendo Switch console</span></a> or for <a href=\"https://docs.google.com/document/d/1HHQRXND0n-ZrmhEl4eXjzMANQ-xHK3pKKXPQqSbwXwY\"><span style=\" text-decoration: underline; color:#9a0089;\">emulator</span></a> to find instructions on running your patch.</p><p>For additional help with this process, please join the <a href=\"https://discord.gg/nNbpfH5jyG\"><span style=\" text-decoration: underline; color:#9a0089;\">Discord Server</span></a> or ask on <a href=\"https://github.com/mint-choc-chip-skyblade/sshd-rando/issues\"><span style=\" text-decoration: underline; color:#9a0089;\">GitHub</span></a>.</p></body></html>", None))
+        self.how_to_running_label.setText(QCoreApplication.translate("main_window", u"<html><head/><body><p><span style=\" font-weight:700;\">Play the Game</span>:</p><p>You can play the modified game either on a modded Nintendo Switch console or on an emulator.</p><p>Please follow the instructions in our setup guides for <a href=\"https://docs.google.com/document/d/1VXNME7SVD5EU7NNn9dQ15_Q9-v9OJAHOX-hSor0n2dg\"><span style=\" text-decoration: underline; color:#9a0089;\">Nintendo Switch console</span></a> or for <a href=\"https://docs.google.com/document/d/1HHQRXND0n-ZrmhEl4eXjzMANQ-xHK3pKKXPQqSbwXwY\"><span style=\" text-decoration: underline; color:#9a0089;\">emulator</span></a> to find instructions on running your patch.</p><p>For additional help with this process, please join the <a href=\"https://discord.gg/nNbpfH5jyG\"><span style=\" text-decoration: underline; color:#9a0089;\">Discord Server</span></a> or ask on <a href=\"https://github.com/mint-choc-chip-skyblade/sshd-tweaks/issues\"><span style=\" text-decoration: underline; color:#9a0089;\">GitHub</span></a>.</p></body></html>", None))
         self.useful_info_group_box.setTitle(QCoreApplication.translate("main_window", u"Useful Information", None))
         self.guides_label.setText(QCoreApplication.translate("main_window", u"<html><head/><body><p>Guides</p><p>\u279c <a href=\"https://docs.google.com/document/d/1VXNME7SVD5EU7NNn9dQ15_Q9-v9OJAHOX-hSor0n2dg\"><span style=\" text-decoration: underline; color:#9a0089;\">Setup Guide (Console)</span></a><br/>\u279c <a href=\"https://docs.google.com/document/d/1HHQRXND0n-ZrmhEl4eXjzMANQ-xHK3pKKXPQqSbwXwY\"><span style=\" text-decoration: underline; color:#9a0089;\">Setup Guide (Emulator)</span></a><br/>\u279c <a href=\"https://docs.google.com/document/d/1Dm0jhwXWIvPLuvl-JoRqocTKjXM_jRRmryYqpQMO_6w\"><span style=\" text-decoration: underline; color:#9a0089;\">Tricks Guide</span></a><br/>\u279c <a href=\"https://docs.google.com/document/d/1Eq1rXcjwRpVjp-5ugpQAsjmZy5QuGi7KAOkvpWoQkqc\"><span style=\" text-decoration: underline; color:#9a0089;\">Texture Replacement Guide</span></a></p></body></html>", None))
-        self.community_label.setText(QCoreApplication.translate("main_window", u"<html><head/><body><p>Community</p><p><span style=\" font-weight:700;\">\u279c </span><a href=\"https://discord.gg/nNbpfH5jyG\"><span style=\" text-decoration: underline; color:#9a0089;\">Discord Server</span></a><br/><span style=\" font-weight:700;\">\u279c </span><a href=\"https://github.com/mint-choc-chip-skyblade/sshd-rando/issues\"><span style=\" text-decoration: underline; color:#9a0089;\">Report a Bug</span></a><br/><span style=\" font-weight:700;\">\u279c </span><a href=\"https://github.com/mint-choc-chip-skyblade/sshd-rando\"><span style=\" text-decoration: underline; color:#9a0089;\">GitHub</span></a></p></body></html>", None))
+        self.community_label.setText(QCoreApplication.translate("main_window", u"<html><head/><body><p>Community</p><p><span style=\" font-weight:700;\">\u279c </span><a href=\"https://discord.gg/nNbpfH5jyG\"><span style=\" text-decoration: underline; color:#9a0089;\">Discord Server</span></a><br/><span style=\" font-weight:700;\">\u279c </span><a href=\"https://github.com/mint-choc-chip-skyblade/sshd-tweaks/issues\"><span style=\" text-decoration: underline; color:#9a0089;\">Report a Bug</span></a><br/><span style=\" font-weight:700;\">\u279c </span><a href=\"https://github.com/mint-choc-chip-skyblade/sshd-tweaks\"><span style=\" text-decoration: underline; color:#9a0089;\">GitHub</span></a></p></body></html>", None))
         self.accessibility_group_box.setTitle(QCoreApplication.translate("main_window", u"Accessibility", None))
         self.theming_fonts.setTitle(QCoreApplication.translate("main_window", u"Fonts", None))
         self.font_family_label.setText(QCoreApplication.translate("main_window", u"Font Family", None))
@@ -747,18 +897,40 @@ class Ui_main_window(object):
         self.font_size_label.setText(QCoreApplication.translate("main_window", u"Font Size", None))
         self.font_reset_button.setText(QCoreApplication.translate("main_window", u"Reset", None))
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.getting_started_tab), QCoreApplication.translate("main_window", u"Getting Started", None))
-        self.dungeons_group_box.setTitle(QCoreApplication.translate("main_window", u"Tweaks", None))
-        self.boss_key_puzzles_label.setText(QCoreApplication.translate("main_window", u"Boss Key Puzzles", None))
-        self.setting_spawn_hearts.setText(QCoreApplication.translate("main_window", u"Spawn Hearts and Heart Flowers", None))
-        self.setting_upgraded_skyward_strike.setText(QCoreApplication.translate("main_window", u"Upgraded Skyward Strike", None))
-        self.setting_faster_air_meter_depletion.setText(QCoreApplication.translate("main_window", u"Faster Air Meter Depletion", None))
-        self.damage_multiplier_label.setText(QCoreApplication.translate("main_window", u"Damage Multiplier", None))
+        self.dungeons_group_box.setTitle(QCoreApplication.translate("main_window", u"Quality of Life", None))
+        self.setting_quick_text.setText(QCoreApplication.translate("main_window", u"Quick Text", None))
+        self.setting_quick_draw_bow.setText(QCoreApplication.translate("main_window", u"Quick Draw Bow with Button Controls", None))
+        self.setting_faster_loftwing.setText(QCoreApplication.translate("main_window", u"Faster Loftwing", None))
+        self.setting_faster_boat.setText(QCoreApplication.translate("main_window", u"Faster Skipper's Boat", None))
+        self.setting_reduce_fi_text.setText(QCoreApplication.translate("main_window", u"Reduce Fi Text", None))
+        self.setting_no_first_time_item_text.setText(QCoreApplication.translate("main_window", u"Remove First Time Item Pick Up Text", None))
+        self.setting_quick_night_shop_refresh.setText(QCoreApplication.translate("main_window", u"Refresh Night Shops without Sleeping", None))
+        self.setting_no_beeping.setText(QCoreApplication.translate("main_window", u"Remove Interface Beeping", None))
         self.ammo_availability_label.setText(QCoreApplication.translate("main_window", u"Ammo Availability", None))
         self.minigame_difficulty_label.setText(QCoreApplication.translate("main_window", u"Minigame Difficulty", None))
-        self.random_trial_object_positions_label.setText(QCoreApplication.translate("main_window", u"Random Trial Object Positions", None))
+        self.boss_key_puzzles_label.setText(QCoreApplication.translate("main_window", u"Boss Key Puzzles", None))
+        self.groupBox.setTitle(QCoreApplication.translate("main_window", u"Events and Cutscenes", None))
+        self.setting_no_explosion_cutscenes.setText(QCoreApplication.translate("main_window", u"Remove Cutscene after Explosions", None))
+        self.setting_no_logs_cutscenes.setText(QCoreApplication.translate("main_window", u"Remove Cutscene after Rolling Logs", None))
+        self.setting_no_rope_cutscenes.setText(QCoreApplication.translate("main_window", u"Remove Cutscene after Unravelling Ropes", None))
+        self.setting_no_minecart_cutscenes.setText(QCoreApplication.translate("main_window", u"Remove Cutscene after Pushing Minecarts", None))
+        self.setting_no_timeshift_cutscenes.setText(QCoreApplication.translate("main_window", u"Remove Cutscene after Activating Timeshift Stones", None))
+        self.setting_no_basketball_cutscenes.setText(QCoreApplication.translate("main_window", u"Remove Cutscene after Blowing Up Falling Statues", None))
+        self.setting_no_box_cutscenes.setText(QCoreApplication.translate("main_window", u"Remove Cutscene after Interacting with Boxes", None))
+        self.setting_no_lilypad_cutscenes.setText(QCoreApplication.translate("main_window", u"Remove Cutscene after Flipping Lilypads", None))
+        self.setting_no_switch_cutscenes.setText(QCoreApplication.translate("main_window", u"Remove Cutscene after Flipping Switches", None))
+        self.setting_reduce_panning_cutscenes.setText(QCoreApplication.translate("main_window", u"Reduce Panning Cutscenes", None))
+        self.hero_mode_settings_groupbox.setTitle(QCoreApplication.translate("main_window", u"Hero Mode", None))
+        self.setting_spawn_hearts.setText(QCoreApplication.translate("main_window", u"Spawn Hearts and Heart Flowers", None))
+        self.setting_faster_air_meter_depletion.setText(QCoreApplication.translate("main_window", u"Faster Air Meter Depletion", None))
+        self.setting_upgraded_skyward_strike.setText(QCoreApplication.translate("main_window", u"Upgraded Skyward Strike", None))
+        self.damage_multiplier_label.setText(QCoreApplication.translate("main_window", u"Damage Multiplier", None))
         self.other_settings_group_box.setTitle(QCoreApplication.translate("main_window", u"Other Settings", None))
         self.setting_enable_back_in_time.setText(QCoreApplication.translate("main_window", u"Enable Back in Time (BiT)", None))
         self.setting_allow_flying_at_night.setText(QCoreApplication.translate("main_window", u"Allow Flying at Night", None))
+        self.setting_early_stamina_potion.setText(QCoreApplication.translate("main_window", u"Unlock Stamina Potion Early", None))
+        self.setting_early_air_potion.setText(QCoreApplication.translate("main_window", u"Unlock Air Potion Early", None))
+        self.setting_no_profanity_filter.setText(QCoreApplication.translate("main_window", u"Disable Profanity Filter", None))
         self.tab_widget.setTabText(self.tab_widget.indexOf(self.tweaks_tab), QCoreApplication.translate("main_window", u"Tweaks", None))
         self.player_cosmetics_group_box.setTitle(QCoreApplication.translate("main_window", u"Player Cosmetics", None))
         self.setting_tunic_swap.setText(QCoreApplication.translate("main_window", u"Tunic Swap", None))

@@ -1,36 +1,41 @@
 Storyflags:
-  - 24 # Skip Fi text around Faron Pillar
-  - 60 # Fi text before Yerbal
-  - 96 # Skip 1st time getting a map Fi text
-  - 122 # Collected Deku Hornet for 1st time
-  - 148 # Watched first looking around Sealed Temple cutscene
+  - reduce_panning_cutscenes == on:
+    - 148 # Watched first looking around Sealed Temple cutscene
   - 226 # Hero Mode
   - 358 # Interface choice unlocked
-  - 753 # Collected Hornet Larvae for 1st time
-  - 754 # Collected Bird Feather for 1st time
-  - 755 # Collected Tumbleweed for 1st time
-  - 756 # Collected Lizard Tail for 1st time
-  - 757 # Collected Eldin Ore for 1st time
-  - 758 # Collected Ancient Flower for 1st time
-  - 759 # Collected Amber Relic for 1st time
-  - 760 # Collected Dusk Relic for 1st time
-  - 761 # Collected Jelly Blob for 1st time
-  - 762 # Collected Monster Claw for 1st time
-  - 763 # Collected Monster Horn for 1st time
-  - 764 # Collected Ornamental Skull for 1st time
-  - 765 # Collected Evil Crystal for 1st time
-  - 766 # Collected Blue Bird Feather for 1st time
-  - 767 # Collected Golden Skull for 1st time
-  - 768 # Collected Goddess Plume for 1st time
+  - reduce_fi_text == on:
+    - 60 # Fi text before Yerbal
+  - reduce_fi_text == on:
+    - 96 # Skip 1st time getting a map Fi text
+    - 24 # Skip Fi text around Faron Pillar
+  - no_first_time_item_text == on:
+    - 122 # Collected Deku Hornet for 1st time
+    - 753 # Collected Hornet Larvae for 1st time
+    - 754 # Collected Bird Feather for 1st time
+    - 755 # Collected Tumbleweed for 1st time
+    - 756 # Collected Lizard Tail for 1st time
+    - 757 # Collected Eldin Ore for 1st time
+    - 758 # Collected Ancient Flower for 1st time
+    - 759 # Collected Amber Relic for 1st time
+    - 760 # Collected Dusk Relic for 1st time
+    - 761 # Collected Jelly Blob for 1st time
+    - 762 # Collected Monster Claw for 1st time
+    - 763 # Collected Monster Horn for 1st time
+    - 764 # Collected Ornamental Skull for 1st time
+    - 765 # Collected Evil Crystal for 1st time
+    - 766 # Collected Blue Bird Feather for 1st time
+    - 767 # Collected Golden Skull for 1st time
+    - 768 # Collected Goddess Plume for 1st time
 
 Sceneflags:
   # Skyloft: # Scene Index 0
 
   Faron Woods: # Scene Index 1
-    - 14 # Skip Fi text in front of Viewing Platform statue
-    - 15 # Skip Fi text after vine to Deep Woods
-    - 51 # Fi text before talking to Yerbal
-    - 52 # Fi text after opening floria gate
+    - reduce_fi_text == on:
+      - 14 # Skip Fi text in front of Viewing Platform statue
+      - 15 # Skip Fi text after vine to Deep Woods
+      - 51 # Fi text before talking to Yerbal
+      - 52 # Fi text after opening floria gate
 
   # Lake Floria: # Scene Index 2
 
@@ -59,19 +64,21 @@ Sceneflags:
   # Earth Temple: # Scene Index 14
 
   Fire Sanctuary: # Scene Index 15
-    - 6 # Watched first water pod Cutscene
+    - reduce_panning_cutscenes == on:
+      - 6 # Watched first water pod Cutscene
 
   # Unused: # Scene Index 16
 
   # Lanayru Mining Facility: # Scene Index 17
 
   Sandship: # Scene Index 18
-    - 9  # Press switch cutscene in south generator room
-    - 10 # Release switch cutscene in south generator room
-    - 33 # Press switch cutscene in BK room
-    - 34 # Release switch cutscene in BK room
-    - 43 # Press switch cutscene in north generator room
-    - 44 # Release switch cutscene in north generator room
+    - no_switch_cutscenes == on:
+      - 9  # Press switch cutscene in south generator room
+      - 10 # Release switch cutscene in south generator room
+      - 33 # Press switch cutscene in BK room
+      - 34 # Release switch cutscene in BK room
+      - 43 # Press switch cutscene in north generator room
+      - 44 # Release switch cutscene in north generator room
 
   # Unused: # Scene Index 19
 
@@ -89,50 +96,51 @@ Sceneflags:
 
 Itemflags:
   # These are mainly for 1st time textbox skips
-  - 2 # Green Rupee
-  - 3 # Blue Rupee
-  - 4 # Red Rupee
-  - 6 # Heart
-  - 7 # Single Arrow
-  - 8 # Bundle of Arrows
-  - 40 # 5 Bombs
-  - 41 # 10 Bombs
-  - 42 # Stamina Fruit
-  - 43 # Tear of Farore
-  - 44 # Tear of Din
-  - 45 # Tear of Nayru
-  - 46 # Sacred Tear
-  - 47 # Light Fruit
-  - 57 # 5 Deku Seeds
-  - 60 # 10 Deku Seeds
-  - 141 # Faron Grasshopper
-  - 142 # Woodland Rhino Beetle
-  - 143 # Deku Hornet
-  - 144 # Skyloft Mantis
-  - 145 # Volcanic Ladybug
-  - 146 # Blessed Butterfly
-  - 147 # Lanayru Ant
-  - 148 # Sand Cicada
-  - 149 # Gerudo Dragonfly
-  - 150 # Eldin Roller
-  - 151 # Sky Stag Beetle
-  - 152 # Starry Firefly
-  - 161 # Hornet Larvae
-  - 162 # Bird Feather
-  - 163 # Tumbleweed
-  - 164 # Lizard Tail
-  - 165 # Eldin Ore
-  - 166 # Ancient Flower
-  - 167 # Amber Relic
-  - 168 # Dusk Relic
-  - 169 # Jelly Blob
-  - 170 # Monster Claw
-  - 171 # Monster Horn
-  - 172 # Ornamental Skull
-  - 173 # Evil Crystal
-  - 174 # Blue Bird Feather
-  - 175 # Golden Skull
-  - 176 # Goddess Plume
+  - no_first_time_item_text == on:
+    - 2 # Green Rupee
+    - 3 # Blue Rupee
+    - 4 # Red Rupee
+    - 6 # Heart
+    - 7 # Single Arrow
+    - 8 # Bundle of Arrows
+    - 40 # 5 Bombs
+    - 41 # 10 Bombs
+    - 42 # Stamina Fruit
+    - 43 # Tear of Farore
+    - 44 # Tear of Din
+    - 45 # Tear of Nayru
+    - 46 # Sacred Tear
+    - 47 # Light Fruit
+    - 57 # 5 Deku Seeds
+    - 60 # 10 Deku Seeds
+    - 141 # Faron Grasshopper
+    - 142 # Woodland Rhino Beetle
+    - 143 # Deku Hornet
+    - 144 # Skyloft Mantis
+    - 145 # Volcanic Ladybug
+    - 146 # Blessed Butterfly
+    - 147 # Lanayru Ant
+    - 148 # Sand Cicada
+    - 149 # Gerudo Dragonfly
+    - 150 # Eldin Roller
+    - 151 # Sky Stag Beetle
+    - 152 # Starry Firefly
+    - 161 # Hornet Larvae
+    - 162 # Bird Feather
+    - 163 # Tumbleweed
+    - 164 # Lizard Tail
+    - 165 # Eldin Ore
+    - 166 # Ancient Flower
+    - 167 # Amber Relic
+    - 168 # Dusk Relic
+    - 169 # Jelly Blob
+    - 170 # Monster Claw
+    - 171 # Monster Horn
+    - 172 # Ornamental Skull
+    - 173 # Evil Crystal
+    - 174 # Blue Bird Feather
+    - 175 # Golden Skull
+    - 176 # Goddess Plume
 
 # Dungeonflags:
   # Skyloft: # Scene Index 0

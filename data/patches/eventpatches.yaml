@@ -3,11 +3,13 @@
 
 003-ItemGet:
   - name: Remove bipping after practice sword
+    onlyif: no_beeping == on
     type: flowpatch
     index: 383
     flow:
       next: -1
   - name: Remove bipping after getting slingshot
+    onlyif: no_beeping == on
     type: flowpatch
     index: 520
     flow:
@@ -21,6 +23,7 @@
 
 101-Shop:
   - name: Remove pouch bipping after item seller
+    onlyif: no_beeping == on
     type: flowpatch
     index: 89
     flow:
@@ -28,6 +31,7 @@
 
 106-DrugStore:
   - name: Remove requirement for Stamina Potion
+    onlyif: early_stamina_potion == on
     type: flowpatch
     index: 103
     flow: {}
@@ -35,6 +39,7 @@
       - 50
       - 50
   - name: Remove requirement for Air Potion
+    onlyif: early_air_potion == on
     type: flowpatch
     index: 124
     flow: {}
@@ -42,6 +47,7 @@
       - 49
       - 49
   - name: Remove pouch bipping from Potion Lady
+    onlyif: no_beeping == on
     type: flowpatch
     index: 115
     flow:
@@ -49,6 +55,7 @@
 
 108-ShinkanA:
   - name: Remove bipping after Owlan's Gift
+    onlyif: no_beeping == on
     type: flowpatch
     index: 165
     flow:
@@ -194,11 +201,13 @@
 
   # Cycle through Rupin's night market options
   - name: Patch in new treasure choices question
+    onlyif: quick_night_shop_refresh == on
     type: flowpatch
     index: 410
     flow:
       next: Show Change Night Treasures Question
   - name: Show Change Night Treasures Question
+    onlyif: quick_night_shop_refresh == on
     type: flowadd
     flow:
       type: type1
@@ -206,6 +215,7 @@
       param3: 115
       param4: Change Night Treasures/Bugs Question
   - name: Treasure Question Switch
+    onlyif: quick_night_shop_refresh == on
     type: switchadd
     flow:
       subType: 6
@@ -217,11 +227,13 @@
 
   # Cycle through Strich's night market options
   - name: Patch in new bug choices question
+    onlyif: quick_night_shop_refresh == on
     type: flowpatch
     index: 473
     flow:
       next: Show Change Night Bugs Question
   - name: Show Change Night Bugs Question
+    onlyif: quick_night_shop_refresh == on
     type: flowadd
     flow:
       type: type1
@@ -229,6 +241,7 @@
       param3: 115
       param4: Change Night Treasures/Bugs Question
   - name: Bug Question Switch
+    onlyif: quick_night_shop_refresh == on
     type: switchadd
     flow:
       subType: 6
