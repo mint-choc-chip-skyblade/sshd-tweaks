@@ -34,12 +34,6 @@ class World:
     def __str__(self) -> str:
         return f"World {self.id + 1}"
 
-    def resolve_random_settings(self) -> None:
-        # Use the randomness from the seed for resolving standard settings
-        for setting in self.setting_map.settings.values():
-            if setting.info.type == SettingType.STANDARD:
-                setting.resolve_if_random()
-
     def resolve_conflicting_settings(self) -> None:
         pass
 

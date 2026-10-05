@@ -75,11 +75,9 @@ class Settings:
             except:
                 pass
 
-            if isinstance(widget, RandoTriStateCheckBox):
+            if isinstance(widget, QCheckBox):
                 if current_option_value == "on":
                     widget.setChecked(True)
-                elif current_option_value == "random":
-                    widget.setCheckState(Qt.CheckState.PartiallyChecked)
                 elif current_option_value == "off":
                     widget.setChecked(False)
                 else:
@@ -89,10 +87,6 @@ class Settings:
 
                 widget.setText(setting_info.info.pretty_name)
                 widget.clicked.connect(partial(self.update_from_gui, widget))
-            elif isinstance(widget, QCheckBox):
-                raise Exception(
-                    f"All settings mapped to QCheckBox objects need promoting to RandoTriStateCheckBox objects in the Qt Designer. Fix widget with name: {widget.objectName()}."
-                )
             elif isinstance(widget, QComboBox):  # pick one option
                 for option in setting_info.info.pretty_options:
                     widget.addItem(option)
@@ -104,17 +98,9 @@ class Settings:
                     partial(self.update_from_gui, widget)
                 )
             elif isinstance(widget, QSpinBox):  # pick a value
-                widget.setMinimum(
-                    int(setting_info.info.options[0]) - 1
-                )  # -1 for special value
+                widget.setMinimum(int(setting_info.info.options[0]))
                 widget.setMaximum(int(setting_info.info.options[-2]))
-                widget.setSpecialValueText("Random")
-
-                if current_option_value == "random":
-                    widget.setValue(widget.minimum())
-                else:
-                    widget.setValue(int(current_option_value))
-
+                widget.setValue(int(current_option_value))
                 widget.valueChanged.connect(partial(self.update_from_gui, widget))
 
         # Force descriptions to update before changing any setting
@@ -142,18 +128,9 @@ class Settings:
             new_setting = setting
             new_option = ""
 
-            if isinstance(widget, RandoTriStateCheckBox):
+            if isinstance(widget, QCheckBox):
                 if widget.checkState() == Qt.CheckState.Checked:
                     new_option = "on"
-                elif widget.checkState() == Qt.CheckState.PartiallyChecked:
-                    new_option = "random"
-
-                    if not self.config.tutorial_random_settings and from_widget:
-                        self.main.fi_info_dialog.show_dialog(
-                            "Random Setting Information",
-                            f"Checkboxes have 3 states: off, on, and 'random'. Checkboxes that have a dash (-) instead of a tick mean that the randomizer will randomly pick if that setting is on or off when you click 'Randomize'.<br><br>You can middle-click any setting to quickly reset it back to its default or right-click to view a description of the possible options for a setting.",
-                        )
-                        self.config.tutorial_random_settings = True
                 else:
                     new_option = "off"
             elif isinstance(widget, QComboBox):
@@ -204,8 +181,6 @@ class Settings:
             if isinstance(widget, QCheckBox):
                 if current_option_value == "on":
                     widget.setChecked(True)
-                elif current_option_value == "random":
-                    widget.setCheckState(Qt.CheckState.PartiallyChecked)
                 elif current_option_value == "off":
                     widget.setChecked(False)
                 else:
@@ -219,10 +194,7 @@ class Settings:
                     setting_info.info.options.index(setting_info.value)
                 )
             elif isinstance(widget, QSpinBox):  # pick a value
-                if current_option_value == "random":
-                    widget.setValue(widget.minimum())
-                else:
-                    widget.setValue(int(current_option_value))
+                widget.setValue(int(current_option_value))
 
             widget.blockSignals(False)
 
@@ -236,16 +208,8 @@ class Settings:
             )
 
         new_setting = setting
-
-        if ((value.startswith("-") and value[1:].isdigit()) or value.isdigit()) and int(
-            value
-        ) == int(setting.info.options[0]) - 1:
-            option_index = setting.info.options.index("random")
-            new_setting.value = "random"
-        else:
-            option_index = setting.info.options.index(value)
-            new_setting.value = value
-
+        option_index = setting.info.options.index(value)
+        new_setting.value = value
         new_setting.update_current_value(option_index)
 
         return new_setting
@@ -273,8 +237,6 @@ class Settings:
         if isinstance(widget, QCheckBox):
             if default_option == "on":
                 widget.setCheckState(Qt.CheckState.Checked)
-            elif default_option == "random":
-                widget.setCheckState(Qt.CheckState.PartiallyChecked)
             elif default_option == "off":
                 widget.setCheckState(Qt.CheckState.Unchecked)
         elif isinstance(widget, QComboBox):
@@ -395,17 +357,11 @@ class Settings:
         if isinstance(widget, QSpinBox):
             last_index = len(setting.info.options) - 1
 
-            if is_random := setting.info.options[last_index] == "random":
-                last_index -= 1
-
             description_text += self.format_description(
                 setting,
                 0,
                 custom_option_name=f"{setting.info.options[0]}-{setting.info.options[last_index]}",
             )
-
-            if is_random:
-                description_text += "<br>" + self.format_description(setting, -1)
         else:
             for option_index in range(0, len(setting.info.options)):
                 description_text += (

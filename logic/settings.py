@@ -45,13 +45,6 @@ class SettingInfo:
         self.default_option_index: int = 0
         self.current_option_index: int = 0
 
-        self.has_random_option: bool = True
-        self.random_option: str = None  # name of random option
-        self.random_low: int = 0  # lower bound when choosing random option
-        self.random_high: int = 0  # upper bound when choosing random option
-
-        self.tracker_important: bool = False
-
     def __str__(self) -> str:
         return self.pretty_name | self.name
 
@@ -67,7 +60,6 @@ class Setting:
         self.name: str = name_
         self.value: str = value_
         self.info: SettingInfo = info_
-        self.is_using_random_option: bool = False
         self.current_option_index: int = 0
         self.custom_value: str = None
 
@@ -84,19 +76,6 @@ class Setting:
         if self.info:
             self.info.current_option_index = option_index
             self.value = self.info.options[option_index]
-
-    def resolve_if_random(self) -> None:
-        if self.value == self.info.random_option:
-            self.is_using_random_option = True
-            random_options = self.info.options[
-                self.info.random_low : self.info.random_high + 1
-            ]
-            self.update_current_value(
-                self.info.options.index(random.choice(random_options))
-            )
-            logging.getLogger("").debug(
-                f"Chose {self.value} as random option for {self.name}"
-            )
 
 
 class SettingMap:
@@ -261,43 +240,6 @@ def get_all_settings_info() -> dict[str, SettingInfo]:
                     s.options = options
                     s.pretty_options = pretty_options
                     s.descriptions = descriptions
-                    s.tracker_important = tracker_important
-
-                    if "no_autogenerate_random" in setting_node:
-                        s.has_random_option = False
-                        continue
-
-                    # Get alias for random choice
-                    if "random_alias" in setting_node:
-                        s.random_option = setting_node["random_alias"]
-                    else:
-                        s.random_option = "random"
-
-                    # Set the range of options the random option can pick from
-                    if "random_range" in setting_node:
-                        # Check to make sure necessary fields exist
-                        for field in ["first", "last"]:
-                            if field not in setting_node["random_range"]:
-                                raise SettingInfoError(
-                                    f'Missing field "{field}" in random_range for "{s.name}"'
-                                )
-                        first = setting_node["random_range"]["first"]
-                        last = setting_node["random_range"]["last"]
-                        s.random_low = options.index(first)
-                        s.random_high = options.index(last)
-                    # If no range is specified, use all options
-                    else:
-                        s.random_low = 0
-                        s.random_high = len(options) - 1
-
-                    # Add the random option if it's not already specified
-                    if s.random_option not in s.options:
-                        # This should only apply to non-aliased random selections currently
-                        s.options.append(s.random_option)
-                        s.pretty_options.append("Random")
-                        s.descriptions.append(
-                            "One of the other options will be selected at random."
-                        )
 
         print_progress_text("Setting data loaded")
 

@@ -47,7 +47,7 @@ class AllPatchHandler:
         output_dir = self.world.config.output_dir
         if output_dir == SSHD_EXTRACT_PATH:
             raise Exception(
-                f"Output path cannot be the same as extract path (the randomizer cannot overwrite its own extract)."
+                f"Output path cannot be the same as extract path (the patcher cannot overwrite its own extract)."
             )
 
         exefs_output = output_dir / "exefs"
