@@ -1,8 +1,9 @@
 Storyflags:
   - 24 # Skip Fi text around Faron Pillar
-  # - 60 # Fi text before Yerbal
+  - 60 # Fi text before Yerbal
   - 96 # Skip 1st time getting a map Fi text
   - 122 # Collected Deku Hornet for 1st time
+  - 148 # Watched first looking around Sealed Temple cutscene
   - 226 # Hero Mode
   - 358 # Interface choice unlocked
   - 753 # Collected Hornet Larvae for 1st time
