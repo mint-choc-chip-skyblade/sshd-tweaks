@@ -124,12 +124,33 @@ F020: # The Sky
       - BirdAnm
       - BirdLinkAnm
       - PLBird
-  - name: Move PyBird from Layer 2 to 0
+  - name: Move PyBird from Layer 1 to 0
     onlyif: allow_flying_at_night == on
     type: objmove
     id: 0xFD05
     layer: 2
     destlayer: 0
+    room: 0
+    objtype: OBJ
+  - name: Remove PyBird from Layer 1
+    onlyif: allow_flying_at_night == on
+    type: objdelete
+    id: 0xFCFA
+    layer: 1
+    room: 0
+    objtype: OBJ
+  - name: Remove PyBird from Layer 3
+    onlyif: allow_flying_at_night == on
+    type: objdelete
+    id: 0xFCFA
+    layer: 3
+    room: 0
+    objtype: OBJ
+  - name: Remove PyBird from Layer 6
+    onlyif: allow_flying_at_night == on
+    type: objdelete
+    id: 0xFCFA
+    layer: 6
     room: 0
     objtype: OBJ
 
